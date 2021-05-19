@@ -4,6 +4,10 @@ window.onload = function(){
     let music = document.querySelector('audio');
     let playPause1 = document.getElementById('playPause');
     let player = document.getElementsByClassName('player')[0];
+    let audio = document.getElementById('myAudio');
+    let currentEl = document.getElementById('current-time');
+    let durationEl = document.getElementById('total-duration');
+    let progress = document.getElementById('progress-bar');
     player.style.display="none";
     const songs =[
         {
@@ -19,12 +23,18 @@ window.onload = function(){
 
         },
     ]
+    let z;
     playSong=(i)=>{
         player.style.display="block";
         console.log(i);
-        playPause.className="fas fa-pause";
+        playPause1.className="fas fa-pause";
         music.src=songs[i].path;
         music.play();
+        console.log(audio.duration);
+        let x=0;
+        
+        //z=setInterval(function(){updateTimer(x+1) }, 1000);
+
         isPlaying=true;
         currentSong=i;
     }
@@ -38,6 +48,7 @@ window.onload = function(){
         if(isPlaying==true){
             playPause1.className="fas fa-play";
             music.pause();
+            music.duration
             isPlaying=false;
         }
         else{
@@ -72,4 +83,55 @@ window.onload = function(){
        playSong(currentSong);
 
     }
+    seekTo=()=>{
+        music.pause();
+        let {duration, currentTime}=music;
+        let value = progress.value;
+        currentTime=(value*duration)/100;
+        music.currentTime=currentTime;
+        music.play();
+        let currentMin= Math.floor(currentTime/60);
+        let  currentSec= Math.floor(currentTime%60);
+
+        if(currentSec<=0){
+            currentSec =`0${currentSec}`;
+        }
+        progress.value=(currentTime/duration)*100;
+        currentEl.innerHTML =`${currentMin}:${currentSec}`;
+
+    }
+    let x=0;
+    progress.value=0;
+    function updateTimer(e) {
+        const {duration, currentTime}=music;
+        console.log(currentTime);
+        let durationMin = Math.floor(duration/60);
+        let durationSec = Math.floor(duration%60);
+        if(durationSec<=0){
+            durationSec = `0${durationSec}`;
+        }
+        if(durationSec)
+        durationEl.innerHTML=`${durationMin}:${durationSec}`;
+        let currentMin= Math.floor(currentTime/60);
+        let  currentSec= Math.floor(currentTime%60);
+
+        if(currentSec<=0){
+            currentSec =`0${currentSec}`;
+        }
+        progress.value=(currentTime/duration)*100;
+        currentEl.innerHTML =`${currentMin}:${currentSec}`;
+
+        //x+=1;
+        //console.log(x);
+        console.log(duration);
+        if(x>=duration){
+           clearInterval(z); 
+           isPlaying=false;
+           playPause();
+        }
+
+    }
+    music.addEventListener("timeupdate", updateTimer);
+
+    
 }
