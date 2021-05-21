@@ -8,12 +8,15 @@ window.onload = function(){
     let currentEl = document.getElementById('current-time');
     let durationEl = document.getElementById('total-duration');
     let progress = document.getElementById('progress-bar');
+    let img=document.getElementsByClassName("img-container")[0].querySelector('img');
+    let background_img=document.getElementsByClassName("bg-img")[0];
+    let volume=document.getElementsByClassName("volume-slider")[0];
     player.style.display="none";
     const songs =[
         {
             path:'https://raw.githubusercontent.com/ustabasiibrahim/music-player/master/assets/music/1.mp3',
             displayName: 'yildiz Tozu',
-            cove:"https://images.genius.com/ee202c6f724ffd4cf61db01a205eeb47.100x1000x1.jpg",
+            cover:"https://i.ibb.co/tqnPYX8/yildiz-tozu.jpg",
 
         },
         {
@@ -23,20 +26,26 @@ window.onload = function(){
 
         },
     ]
-    let z;
+    changeImage=(i)=>{
+        img.src=songs[i].cover;
+        img.alt=songs[i].displayName;
+    }
     playSong=(i)=>{
         player.style.display="block";
         console.log(i);
         playPause1.className="fas fa-pause";
         music.src=songs[i].path;
+        music.volume=(volume.value)/100;
         music.play();
-        console.log(audio.duration);
-        let x=0;
-        
-        //z=setInterval(function(){updateTimer(x+1) }, 1000);
-
+        console.log(music.duration);
         isPlaying=true;
         currentSong=i;
+        changeImage(i);
+        background_img.src=songs[i].cover;
+
+    }
+    changeVolume=()=>{
+        music.volume=(volume.value)/100;
     }
     let listSongs = () =>{
         for(i=0;i<songs.length;i++){
@@ -47,6 +56,7 @@ window.onload = function(){
     playPause=()=>{
         if(isPlaying==true){
             playPause1.className="fas fa-play";
+            console.log(music);
             music.pause();
             music.duration
             isPlaying=false;
@@ -107,7 +117,7 @@ window.onload = function(){
         console.log(currentTime);
         let durationMin = Math.floor(duration/60);
         let durationSec = Math.floor(duration%60);
-        if(durationSec<=0){
+        if(durationSec<=9){
             durationSec = `0${durationSec}`;
         }
         if(durationSec)
@@ -115,7 +125,7 @@ window.onload = function(){
         let currentMin= Math.floor(currentTime/60);
         let  currentSec= Math.floor(currentTime%60);
 
-        if(currentSec<=0){
+        if(currentSec<=9){
             currentSec =`0${currentSec}`;
         }
         progress.value=(currentTime/duration)*100;

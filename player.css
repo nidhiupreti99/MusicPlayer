@@ -1,13 +1,71 @@
 
 .sidebar{
+    position:fixed;
     width: 25%;
     margin-top: 0px;
     margin-left: 0px;
+    height: 100%;
 }
 .player{
+    position:fixed;
+    top:0;
+    margin-left:25%;
     width: 75%;
-    margin-top: 0px;
-    margin-left: 0px;
+    height:100%;
+}
+.bg-img{
+    filter:blur(8px);
+    height:100%;
+    width: 100%;
+}
+.img-container{
+    position:absolute;
+    top:25%;
+    bottom:25%;
+    left:25%;
+    right:25%;
+
+}
+.song-img{
+    position:absolute;
+    height:80%;
+    width:100%;
+
+}
+.audio-controls{
+    position: absolute;
+    height:20%;
+    width:100%;
+    top:80%;
+}
+#current-time{
+  position:absolute;
+  top:10%;
+  left:5%
+}
+#progress-bar{
+    position:absolute;
+    top:10%;
+    left:10%;
+    width:79%;
+    right:10%   
+}
+#total-duration{
+   position:absolute;
+   top:10%;
+   left:90%;
+
+}
+.prevNext{
+    position:absolute;
+    left:40%;
+    top:30%;
+}
+#volume-bar{
+    top:30%;
+    width:10%;
+    left:30%;
+    position:absolute;
 }
 .round-time-bar{
     height:5px;
@@ -21,7 +79,7 @@
     height: 5px;
     background:black;
     opacity:0.7;
-    -webkit-transition: .2s;
+    -webkit-transition: .10s;
     transition: opacity .2s;
 }
 .seek-slider::-webkit-slider-thumb{

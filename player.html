@@ -13,15 +13,25 @@
            </div>
        </div>
        <div class="player">
-           <audio  src="" id="myAudio"></audio>
+           <img class="bg-img" src="" alt="">
+           <div class="img-container">
+               <img class="song-img" src="" alt="" width="50px" height="50px">
+               <audio  src=""></audio>
+               <div class="audio-controls">
+
                <div id="current-time">0.00</div>
                <input id="progress-bar" type="range" class="seek-slider" name="seek-slider" min="0" max="100" value="0" onchange="seekTo()" >
                <div id="total-duration">0.00</div>
-           <div>
-           <button id="previous" class="fas fa-backward" onclick="prevSong()"></button>
-           <button id="playPause" class="fas fa-pause" onclick="playPause()"></button>
-           <button id="forward" class="fas fa-forward" onclick="nextSong()"></button>
+               <div id="volume">
+                <input id="volume-bar" type="range" class="fas fa-volume volume-slider" name="volume-slider" min="0" max="100" value=0 onchange="changeVolume()" >  
+               </div>
+               <div class="prevNext">
+               <button id="previous" class="fas fa-backward" onclick="prevSong()"></button>
+               <button id="playPause" class="fas fa-pause" onclick="playPause()"></button>
+               <button id="forward" class="fas fa-forward" onclick="nextSong()"></button>
+               </div>
            </div>
+       </div>
        </div>
     </body>
 </html>
