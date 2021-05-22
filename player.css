@@ -5,6 +5,45 @@
     margin-top: 0px;
     margin-left: 0px;
     height: 100%;
+    overflow-y: auto;
+}
+.fa-play{
+    margin-left:8px;
+    border-radius: 100%;
+    height:30px;
+    
+}
+.songs-head{
+    position:relative;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    background-color: black;
+    width:100%;
+    color:white;
+    height:20%;
+    text-align: center;
+    padding-top: 10%;
+    padding-left: 10%;
+}
+.card{
+    display:flex;
+    justify-content: space-between;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    font-style: italic;
+    font-size: larger;
+    margin-top:15px;
+    align-items: center;
+    height:15%;
+    width:100%;
+
+}
+.card:hover{
+    box-shadow: 0 16px 24px 0 rgba(0, 0, 0, 0.2);
+}
+.container{
+    padding:4px;
+    align-items: center;
 }
 .player{
     position:fixed;
@@ -41,19 +80,23 @@
 #current-time{
   position:absolute;
   top:10%;
-  left:5%
+  left:5%;
+  color:white;
+  
 }
 #progress-bar{
     position:absolute;
     top:10%;
     left:10%;
     width:79%;
-    right:10%   
+    right:10%  ;
+    background-color: white; 
 }
 #total-duration{
    position:absolute;
    top:10%;
    left:90%;
+   color:white;
 
 }
 .prevNext{

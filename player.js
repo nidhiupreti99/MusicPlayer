@@ -1,18 +1,54 @@
 window.onload = function(){
     let isPlaying=false;
-    let list1=document.getElementById('list');
-    let music = document.querySelector('audio');
-    let playPause1 = document.getElementById('playPause');
-    let player = document.getElementsByClassName('player')[0];
-    let audio = document.getElementById('myAudio');
-    let currentEl = document.getElementById('current-time');
-    let durationEl = document.getElementById('total-duration');
-    let progress = document.getElementById('progress-bar');
-    let img=document.getElementsByClassName("img-container")[0].querySelector('img');
-    let background_img=document.getElementsByClassName("bg-img")[0];
-    let volume=document.getElementsByClassName("volume-slider")[0];
+    const list1=document.getElementById('list');
+    const music = document.querySelector('audio');
+    const playPause1 = document.getElementById('playPause');
+    const player = document.getElementsByClassName('player')[0];
+    const audio = document.getElementById('myAudio');
+    const currentEl = document.getElementById('current-time');
+    const durationEl = document.getElementById('total-duration');
+    const progress = document.getElementById('progress-bar');
+    const img=document.getElementsByClassName("img-container")[0].querySelector('img');
+    const background_img=document.getElementsByClassName("bg-img")[0];
+    const volume=document.getElementsByClassName("volume-slider")[0];
     player.style.display="none";
     const songs =[
+        {
+            path:'https://raw.githubusercontent.com/ustabasiibrahim/music-player/master/assets/music/1.mp3',
+            displayName: 'yildiz Tozu',
+            cover:"https://i.ibb.co/tqnPYX8/yildiz-tozu.jpg",
+
+        },
+        {
+            path:'https://raw.githubusercontent.com/ustabasiibrahim/music-player/master/assets/music/2.mp3',
+            displayName:'You Are Somebody Else',
+            cover:"https://pbs.twimg.com/media/D2NZH-2U4AAL9Xs.jpg"
+
+        },
+        {
+            path:'https://raw.githubusercontent.com/ustabasiibrahim/music-player/master/assets/music/1.mp3',
+            displayName: 'yildiz Tozu',
+            cover:"https://i.ibb.co/tqnPYX8/yildiz-tozu.jpg",
+
+        },
+        {
+            path:'https://raw.githubusercontent.com/ustabasiibrahim/music-player/master/assets/music/2.mp3',
+            displayName:'You Are Somebody Else',
+            cover:"https://pbs.twimg.com/media/D2NZH-2U4AAL9Xs.jpg"
+
+        },
+        {
+            path:'https://raw.githubusercontent.com/ustabasiibrahim/music-player/master/assets/music/1.mp3',
+            displayName: 'yildiz Tozu',
+            cover:"https://i.ibb.co/tqnPYX8/yildiz-tozu.jpg",
+
+        },
+        {
+            path:'https://raw.githubusercontent.com/ustabasiibrahim/music-player/master/assets/music/2.mp3',
+            displayName:'You Are Somebody Else',
+            cover:"https://pbs.twimg.com/media/D2NZH-2U4AAL9Xs.jpg"
+
+        },
         {
             path:'https://raw.githubusercontent.com/ustabasiibrahim/music-player/master/assets/music/1.mp3',
             displayName: 'yildiz Tozu',
@@ -49,7 +85,7 @@ window.onload = function(){
     }
     let listSongs = () =>{
         for(i=0;i<songs.length;i++){
-            list1.innerHTML+=`<div id=${i+1}><p>${songs[i].displayName}</p><button class="fas fa-play" id=${i}btn onclick={playSong(${i})}></button`;
+            list1.innerHTML+=`<div class="card" id=${i+1}>${songs[i].displayName}<button class="fas fa-play" id=${i}btn onclick={playSong(${i})}></button></div>`;
         }
     }
     listSongs();
